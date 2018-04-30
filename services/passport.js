@@ -22,7 +22,7 @@ console.log(keys.googleClientID+" Client ID and Client Secret " + keys.googleCli
 passport.use(new GoogleStrategy({
   clientID: keys.googleClientID,
   clientSecret: keys.googleClientSecret,
-  callbackURL:'/auth/google/callloda',
+  callbackURL:'/auth/google/callback',
   proxy: true
 }, (accessToken, refreshToken, profile, done) => {
 
