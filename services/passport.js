@@ -16,11 +16,13 @@ passport.deserializeUser((id,done) => {
     });
 });
 
+console.log(keys.googleClientID+" Client ID and Client Secret " + keys.googleClientSecret);
+
 
 passport.use(new GoogleStrategy({
   clientID: keys.googleClientID,
   clientSecret: keys.googleClientSecret,
-  callbackURL: '/auth/google/callback',
+  callbackURL:'/auth/google/callloda',
   proxy: true
 }, (accessToken, refreshToken, profile, done) => {
 
