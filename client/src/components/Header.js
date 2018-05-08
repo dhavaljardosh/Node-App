@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Payments from './Payment'
+
 
 class Header extends Component {
 
@@ -12,7 +15,10 @@ class Header extends Component {
        case false:
         return <li><a href="/auth/google">Login with Google</a></li>;
        default:
-        return <li><a href="/api/logout">Log Out</a></li>;
+        return [
+          <li><Payments/></li>,
+          <li><a href="/api/logout">Log Out</a></li>
+        ];
      }
   }
 
@@ -25,7 +31,11 @@ class Header extends Component {
       <div>
       <nav style={sty}>
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo">Emaily</a>
+          <Link
+            to={this.props.auth ? '/survey': '/'}
+            className="brand-logo">
+              Emaily
+          </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
 
             {this.renderContent()}
